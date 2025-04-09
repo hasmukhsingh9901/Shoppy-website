@@ -1,21 +1,94 @@
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML``   text# Shopping Website Using React + Fake Store API  This is a simple shopping website built with React, Vite, and the Fake Store API. It includes features like user authentication, product listing, product details, cart management, and order placement.  ---  ## Features  1. **Login Page**     - User authentication using the `/auth/login` endpoint of Fake Store API.     - JWT token is stored in `localStorage`.     - On successful login, the user is redirected to the product listing page.  2. **Product Listing Page (Home)**     - Displays all products fetched from the `/products` endpoint.     - Includes category filtering (`/products/category/:category`).     - Responsive grid layout (mobile-first).  3. **Product Detail Page**     - Displays detailed information about a selected product (image, title, description, price).     - Includes an "Add to Cart" button.  4. **Cart Page**     - Displays products added to the cart.     - Allows updating product quantity or removing items.     - Displays the total price of items in the cart.     - Includes a "Checkout" button that clears the cart and shows a confirmation message.  5. **Header / Navigation**     - Links: Home | Cart | Logout.     - Displays the cart item count in the header.     - Logout clears the JWT token and redirects to the login page.  ---  ## Tech Stack  - **Frontend Framework**: React.js (Vite)  - **Routing**: React Router v6+  - **State Management**: React Hooks (Optional: Context API for cart state)  - **API Integration**: Axios  - **Styling**: Plain CSS (Responsive design using a mobile-first approach)  - **API**: [Fake Store API](https://fakestoreapi.com/docs)  ---  ## Installation and Setup  1. Clone this repository:   ``
 
-git clone [https://github.com/your-repo/shopping-website.git](https://github.com/your-repo/shopping-website.git)cd shopping-website
+---
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   text  2. Install dependencies:   `
+## Key Pages and Components
 
-npm install
+### 1. Login Page (`Login.jsx`)
+- A form with username and password fields.
+- Authenticates user credentials via Fake Store API's `/auth/login` endpoint.
+- Stores JWT token in `localStorage`.
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   text  3. Run the development server:   `
+### 2. Product Listing Page (`Products.jsx`)
+- Fetches and displays all products from `/products` endpoint.
+- Implements a responsive grid layout for displaying products.
 
-npm run dev
+### 3. Product Detail Page (`ProductDetail.jsx`)
+- Fetches and displays detailed information about a specific product using its ID.
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   text  4. Open your browser and navigate to:   `
+### 4. Cart Page (`Cart.jsx`)
+- Manages cart items using Context API.
+- Allows users to update quantities, remove items, and checkout.
 
-[http://localhost:5173](http://localhost:5173/)
+### 5. Header Component (`Header.jsx`)
+- Provides navigation links for Home, Cart, and Logout.
+- Dynamically displays the number of items in the cart.
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   text  ---  ## Project Structure   `
+---
 
-shopping-website/├── public/├── src/│ ├── components/│ │ ├── Login.jsx│ │ ├── Products.jsx│ │ ├── ProductDetail.jsx│ │ ├── Cart.jsx│ │ ├── Header.jsx│ ├── context/│ │ ├── CartContext.jsx│ ├── App.jsx│ ├── main.jsx│ ├── index.css├── package.json└── README.md
+## How It Works
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML``   text  ---  ## Key Pages and Components  ### 1. Login Page (`Login.jsx`)  - A form with username and password fields.  - Authenticates user credentials via Fake Store API's `/auth/login` endpoint.  - Stores JWT token in `localStorage`.  ### 2. Product Listing Page (`Products.jsx`)  - Fetches and displays all products from `/products` endpoint.  - Implements a responsive grid layout for displaying products.  ### 3. Product Detail Page (`ProductDetail.jsx`)  - Fetches and displays detailed information about a specific product using its ID.  ### 4. Cart Page (`Cart.jsx`)  - Manages cart items using Context API.  - Allows users to update quantities, remove items, and checkout.  ### 5. Header Component (`Header.jsx`)  - Provides navigation links for Home, Cart, and Logout.  - Dynamically displays the number of items in the cart.  ---  ## How It Works  1. **Authentication**      - Users log in with their credentials.      - On successful login, a JWT token is stored in `localStorage`.  2. **Product Management**      - Products are fetched from Fake Store API's `/products` endpoint.      - Clicking on a product redirects to its detail page.  3. **Cart Management**      - Users can add products to their cart from the product detail page.      - The cart page allows users to update quantities or remove items.  4. **Order Placement**      - Clicking on "Checkout" clears the cart and shows an order confirmation message.  5. **Logout**      - Clears the JWT token from `localStorage` and redirects to the login page.  ---  ## APIs Used  1. **Login Endpoint**        ```      POST https://fakestoreapi.com/auth/login      ```      Example Request Body:      ```      {        "username": "user",        "password": "password"      }      ```  2. **Get All Products**        ```      GET https://fakestoreapi.com/products      ```  3. **Get Products by Category**        ```      GET https://fakestoreapi.com/products/category/:category      ```  4. **Get Product by ID**        ```      GET https://fakestoreapi.com/products/:id      ```  ---  ## Future Enhancements  - Add search functionality to filter products by name or description.  - Implement user registration functionality.  - Add persistent storage for cart items using `localStorage`.  - Improve styling with CSS frameworks like TailwindCSS or Bootstrap.  ---  ## License  This project is open-source and available under the [MIT License](LICENSE).  Feel free to contribute or fork this repository! 😊   ``
+1. **Authentication**
+    - Users log in with their credentials.
+    - On successful login, a JWT token is stored in `localStorage`.
+
+2. **Product Management**
+    - Products are fetched from Fake Store API's `/products` endpoint.
+    - Clicking on a product redirects to its detail page.
+
+3. **Cart Management**
+    - Users can add products to their cart from the product detail page.
+    - The cart page allows users to update quantities or remove items.
+
+4. **Order Placement**
+    - Clicking on "Checkout" clears the cart and shows an order confirmation message.
+
+5. **Logout**
+    - Clears the JWT token from `localStorage` and redirects to the login page.
+
+---
+
+## APIs Used
+
+1. **Login Endpoint**  
+    ```
+    POST https://fakestoreapi.com/auth/login
+    ```
+    Example Request Body:
+    ```
+    {
+      "username": "user",
+      "password": "password"
+    }
+    ```
+
+2. **Get All Products**  
+    ```
+    GET https://fakestoreapi.com/products
+    ```
+
+3. **Get Products by Category**  
+    ```
+    GET https://fakestoreapi.com/products/category/:category
+    ```
+
+4. **Get Product by ID**  
+    ```
+    GET https://fakestoreapi.com/products/:id
+    ```
+
+---
+
+## Future Enhancements
+
+- Add search functionality to filter products by name or description.
+- Implement user registration functionality.
+- Add persistent storage for cart items using `localStorage`.
+- Improve styling with CSS frameworks like TailwindCSS or Bootstrap.
+
+---
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+Feel free to contribute or fork this repository! 😊
